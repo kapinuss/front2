@@ -1,0 +1,25 @@
+package controllers
+
+import javax.inject._
+import play.api._
+import play.api.mvc._
+
+@Singleton
+class HomeController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+
+  def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.index())
+  }
+
+  def chapter(number: Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.chapter(number))
+  }
+
+  def article(number: Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.article(number))
+  }
+
+  def delete(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.delete())
+  }
+}
